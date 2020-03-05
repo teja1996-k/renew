@@ -1,0 +1,43 @@
+<div
+  [style.margin-left.px]="formMargin"
+  [style.margin-right.px]="formMargin"
+  id="superSummary"
+>
+  <h1 [ngStyle]="setMyStyles()" style="margin:50px 0 30px 0;">
+    Super Summary
+  </h1>
+  <mat-grid-list
+    [cols]="primaryCol"
+    [gutterSize]="gutterSize"
+    [rowHeight]="rowHeight"
+  >
+    <mat-grid-tile [rowspan]="applicantRow">
+      <app-applicant></app-applicant>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.lineManager" [rowspan]="pricingRow">
+      <app-pricing-terms></app-pricing-terms>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.underwriter" [rowspan]="decisionRow">
+      <app-decision-engine></app-decision-engine>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="!formName.csr" [rowspan]="calculatorRow">
+      <app-calculator-options></app-calculator-options>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      *ngIf="!formName.csr && !formName.underwriter"
+      [rowspan]="decisionRow"
+    >
+      <app-decision-engine></app-decision-engine>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="rateRow" *ngIf="isLarge"></mat-grid-tile>
+    <mat-grid-tile
+      [rowspan]="rateRow"
+      *ngIf="isLarge && formName.underwriter"
+    ></mat-grid-tile>
+
+    <mat-grid-tile *ngIf="!formName.csr" [rowspan]="rateRow">
+      <app-rate></app-rate>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

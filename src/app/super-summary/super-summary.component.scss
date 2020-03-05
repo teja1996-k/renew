@@ -1,0 +1,20 @@
+@import "../../variablesAndMixins";
+@import "../../formAndTooltip";
+@import "../../tabDesign";
+
+#superSummary {
+  h1 {
+    @include textStyle(36, 48, 500, $headingDark);
+  }
+
+  h2 {
+    @include textStyle(18, 24, 500, $headingDark);
+  }
+
+  .mat-figure {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    display: block;
+    // background-color: skyblue;
+  }
+}

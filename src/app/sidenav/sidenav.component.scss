@@ -1,0 +1,24 @@
+@import "../../variablesAndMixins";
+@import "../../sidenav";
+
+// Sidenav Design
+mat-drawer {
+  background-color: $headingDark !important;
+  width: 280px;
+}
+
+a {
+  @include textStyle(14, 18, 500, $headingDark);
+  text-decoration: none;
+  &:hover {
+    color: $green;
+  }
+}
+
+.mat-list .mat-list-item {
+  height: 38px !important;
+}
+
+// .mat-drawer-backdrop.mat-drawer-shown {
+//   visibility: hidden !important;
+// }

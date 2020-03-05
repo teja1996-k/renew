@@ -1,0 +1,11 @@
+@import "../../variablesAndMixins";
+@import "../../formAndTooltip";
+h1 {
+  @include textStyle(36, 48, 500, $headingDark);
+}
+#applyBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include btnStyle(14, 18, 600, 50, 15, $green, $green, $white, $lightGreen);
+}

@@ -1,0 +1,316 @@
+<div
+  id="applicantDetails"
+  [style.margin-left.px]="formMargin"
+  [style.margin-right.px]="formMargin"
+>
+  <!-- Title -->
+  <mat-grid-list cols="3" rowHeight="100px" style="margin-top: 30px;">
+    <mat-grid-tile id="formApplicationTile">
+      <h1 [ngStyle]="setMyStyles()">
+        Applicant Details
+      </h1>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" id="formButtonsTile">
+      <button mat-stroked-button class="actionBtn">
+        Save & Stay
+      </button>
+      <button mat-stroked-button class="actionBtn">
+        Save & Return
+      </button>
+      <button mat-stroked-button class="actionBtn">
+        Return
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- Form Field -->
+  <mat-grid-list
+    [cols]="primaryCol"
+    [gutterSize]="gutterSize"
+    [rowHeight]="rowHeight"
+  >
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>App</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="app"
+          matTooltip="Application Number"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="date"
+          matTooltip="Application Date"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Product</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="product"
+          matTooltip="The Loan product of the application. Category as standard for conventional loan product or PACE loan"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="!formName.csr">
+      <mat-form-field appearance="standard">
+        <mat-label>Channel</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="channel"
+          #channel="ngModel"
+          matTooltip="How the application information was received"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="!formName.csr">
+      <mat-form-field appearance="standard">
+        <mat-label>Priority</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="priority"
+          matTooltip="The priority of the Application"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="!formName.csr">
+      <mat-form-field appearance="standard">
+        <mat-label>Branch</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="branch"
+          matTooltip="The branch of the Company"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Status</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="status"
+          matTooltip="The status of the Application"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Origination Stage Code</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="origination"
+          matTooltip="The origin state code of the Application"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Region</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="region"
+          matTooltip="The region of the Customer"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Territory</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="territory"
+          matTooltip="The territory of the Customer"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Exisiting Customer</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="customer"
+          matTooltip="Indicates if the customer is an exisiting customer"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Duplicate Application</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="application"
+          matTooltip="Indicates if the application is a duplicate application"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Loan Currency</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="currency"
+          matTooltip="The loan currency of application $"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Contract Type</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="contractType"
+          matTooltip="The type of application. ‘Manual’ indicates contractor gener­ated application, where as ‘E-Contract’ indicates that application is generated from external system"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Joint</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="joint"
+          matTooltip="If selected indicates this is a joint owned proeprty"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Lead</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="lead"
+          matTooltip="The lead number will appear in the list only if a lead is already created using the ECRM link"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.underwriter || formName.lineManager">
+      <mat-form-field appearance="standard">
+        <mat-label>Pull Credit Report</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="pullCreditReport"
+          matTooltip="Check this box to pull an initial credit bureau report , after the application passes the pre-qualification. Uncheck the box, if you want to override without pulling a credit report. To use a previously pulled credit bureau report, uncheck this box and specify the Bureau"
+          [matTooltipPosition]="tooltipPosition"
+        />
+        <span matSuffix style="color: #81BD41; font-size: 14px;">
+          Click Here</span
+        >
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.underwriter || formName.lineManager">
+      <mat-form-field appearance="standard">
+        <mat-label>Proxy for Underwriter</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="proxyUnderwrite"
+          matTooltip="If you are acting as a proxy for an Line manager, then you can select the Line manager's name from the adjoining options list. The list displays all the associated Managers (drop down list)"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.contractor">
+      <mat-form-field appearance="standard">
+        <mat-label>Evaluation Report</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="evaluationReport"
+          matTooltip="Submit / Pull"
+          [matTooltipPosition]="tooltipPosition"
+        />
+        <span matSuffix style="color: #81BD41; font-size: 14px;">
+          Click Here</span
+        >
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="formName.contractor">
+      <mat-form-field appearance="standard">
+        <mat-label>COC</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="coc"
+          matTooltip="Submit / Pull"
+          [matTooltipPosition]="tooltipPosition"
+        />
+        <span matSuffix style="color: #81BD41; font-size: 14px;">
+          Click Here</span
+        >
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile class="checkBoxTile" *ngIf="formName.underwriter">
+      <mat-checkbox disableRipple>Warning Ok </mat-checkbox>
+    </mat-grid-tile>
+    <mat-grid-tile
+      class="checkBoxTile"
+      *ngIf="formName.underwriter || formName.lineManager"
+    >
+      <mat-checkbox
+        matTooltip="Check this box to override the exceptions if any. If the application has been marked as ‘Override OK’ then the system would allow you to change the application sta­tus.(check box)"
+        [matTooltipPosition]="tooltipPosition"
+        disableRipple
+        >Override Ok
+      </mat-checkbox>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

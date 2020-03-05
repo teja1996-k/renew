@@ -1,0 +1,69 @@
+<div>
+  <h2>Calculator Options</h2>
+  <mat-form-field appearance="standard">
+    <mat-label>Billing Cycle</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="billingCycle"
+      matTooltip="Select the Payment Frequency"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Interest Installment Method</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="interestInstallment"
+      matTooltip="Select the Installment method : Equal payments or final payment differs"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Bill Method</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="billMethod"
+      matTooltip="Select the billing method as either Level, percentage of principal plus interest, interest only, fixed principal plus Interest, percentage of outstanding balance"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Calendar Method</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="calendarMethod"
+      matTooltip="Select the calendar method as ‘Hijri’ or ‘Gregorian’ for this loan contract"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.lineManager">
+    <mat-label>LTV</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="ltv"
+      matTooltip="Loan to Value"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.lineManager">
+    <mat-label>PTI</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="pti"
+      matTooltip="Payment to Income"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+</div>

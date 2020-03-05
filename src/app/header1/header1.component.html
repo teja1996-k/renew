@@ -1,0 +1,47 @@
+<!-- TODO: HEADER -->
+<div id="header">
+  <!-- This is for Desktop view -->
+  <mat-grid-list
+    cols="3"
+    rowHeight="173px"
+    id="headerDesktop"
+    *ngIf="isMedium || isLarge"
+  >
+    <mat-grid-tile id="leftTile"
+      ><img [src]="images['renewWhite']" height="75px" alt="logo" />
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" id="rightTile">
+      <div>
+        <h1>{{ "CUSTOMER.reviewForm" | translate }}</h1>
+        <div style="float: right;">
+          <img
+            [src]="images['californiaWhite']"
+            alt=""
+            max-height="26px"
+            style="margin-right: 26px;"
+          />
+          <img [src]="images['paceWhite']" alt="" height="26px" />
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- TODO: This is for Mobile view -->
+  <mat-grid-list
+    cols="1"
+    rowHeight="146px"
+    id="headerMob"
+    *ngIf="isXsmall || isSmall"
+  >
+    <mat-grid-tile id="tileMob">
+      <div>
+        <img
+          [src]="images['renewWhite']"
+          height="60px"
+          alt="logo"
+          style="margin-bottom: 8px;"
+        />
+        <h1>{{ "CUSTOMER.reviewForm" | translate }}</h1>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

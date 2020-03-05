@@ -1,0 +1,149 @@
+// TODO: Custom form field
+// Standard:
+.mat-form-field {
+  width: 100%;
+  .mat-input-element {
+    color: $headingDark;
+    font-size: 14px;
+  }
+  .mat-form-field-label {
+    @include textStyle(14, 21, 900, $labelDark);
+  }
+  .mat-form-field-underline {
+    background-color: $green;
+  }
+  .mat-form-field-ripple {
+    background-color: rgba($color: $lightGreen, $alpha: 0.99);
+  }
+  .mat-form-field-required-marker {
+    color: $labelDark;
+  }
+  .mat-datepicker-toggle {
+    color: $lightGreen;
+  }
+  // Select option
+  .mat-select-arrow {
+    color: $lightGreen;
+  }
+  .mat-select-value {
+    color: $headingDark;
+    font-size: 14px;
+  }
+}
+// Focused: (when selected)
+.mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: $green;
+  }
+  .mat-form-field-ripple {
+    background-color: rgba($color: $lightGreen, $alpha: 0.99);
+  }
+  .mat-form-field-required-marker {
+    color: red;
+  }
+  .mat-input-element {
+    color: $headingDark;
+    font-style: normal;
+    font-weight: 500;
+    caret-color: $green;
+  }
+  .mat-select-arrow {
+    color: $lightGreen;
+  }
+  .mat-select-value {
+    color: $headingDark;
+    font-size: 22px;
+  }
+}
+
+// Invalid Field
+.mat-form-field.mat-form-field-invalid {
+  .mat-input-element {
+    color: red;
+    caret-color: red;
+  }
+  .mat-form-field-label {
+    color: red;
+    .mat-form-field-required-marker {
+      color: red;
+    }
+  }
+  .mat-form-field-ripple {
+    background-color: red;
+  }
+}
+
+// Select option color
+.mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $green !important;
+  background-color: #effcef !important;
+}
+
+// TODO: Custom Checkbox
+
+// Customizing checkbox
+.mat-checkbox .mat-checkbox-frame {
+  border: 1px solid $lightGreen;
+  height: 29px;
+  width: 29px;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $lightGreen;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+  @include textStyle(14, 21, 900, $labelDark);
+  margin-left: 14px;
+  margin-top: 19px;
+}
+
+.mat-checkbox-inner-container {
+  height: 29px !important;
+  width: 29px !important;
+}
+
+// Left Aligning Checkbox Tile
+.checkBoxTile {
+  .mat-figure {
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+}
+// ===============
+// Dollar Icon
+.dollarIcon {
+  @include textStyle(18, 21, 900, $labelDark);
+}
+// ================
+
+//  Tooltip
+.mat-tooltip {
+  @include textStyle(12, 16, 500, $white, #5a5a5a);
+  height: auto !important;
+}
+
+// Calender Design
+.mat-calendar-body-selected {
+  color: $white !important;
+  border: none !important;
+  background-color: $lightGreen !important;
+}
+
+.mat-calendar-body-today {
+  border: 1px solid $green !important;
+}
+
+// Custom number input field
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

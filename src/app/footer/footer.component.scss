@@ -1,0 +1,20 @@
+@import "../../variablesAndMixins";
+
+// Footer
+#footer {
+  @include matFigure(footerLeftTile, center, flex-start, 80);
+  @include matFigure(footerRightTile, center, flex-end);
+  @include matFigure(footerMiddleTile, center, center);
+
+  #footerMob {
+    background-color: $headingDark;
+    p {
+      @include textStyle(9, 12, 500, $lightGreen);
+    }
+  }
+
+  #end {
+    height: 25px;
+    background: $green;
+  }
+}

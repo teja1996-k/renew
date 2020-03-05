@@ -1,0 +1,39 @@
+{
+  "address": "sdfsdf",
+  "channel": "sdfsdf",
+  "countPeopleStay": "",
+  "employmentDetails": "sdfsdf",
+  "income": "",
+  "priority": "",
+  "zipcode": "",
+  "customer": {
+    "firstName": "",
+    "lastName": "",
+    "mobile": 123456789066,
+    "email": "rakesh.k@gmail.com",
+    "ssnNo": "dddd",
+    "address": "dddddd",
+    "birthDate": "1993-11-22"
+  },
+  "contractor": {
+    "id": 1
+  },
+  "pricing": {
+    "id": 1
+  },
+  "sourceOfIncome": {
+    "id": 1
+  },
+  "region": {
+    "id": 1
+  },
+  "product": {
+    "id": 1
+  },
+  "status": {
+    "id": "a"
+  },
+  "branch": {
+    "id": 1
+  }
+}

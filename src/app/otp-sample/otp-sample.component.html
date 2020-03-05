@@ -1,0 +1,57 @@
+
+
+<div id="otpCard">
+  <mat-card>
+    <h1 style="text-align: center;">OTP</h1>
+    <form #otpForm="ngForm">
+    <div class="otpCont flex spaceBetween">
+      <!-- <mat-form-field appearance="outline">
+        <input
+          matInput
+          required
+          ngModel
+          name="in1"
+          #in1
+          maxlength="1"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          required
+          ngModel
+          name="in2"
+          #in2
+          maxlength="1"
+        />
+      </mat-form-field> -->
+      <input class="otSc"  type="text" name="input1" #input1 maxlength="1" pattern="^[0-9]$">
+      <input class="otSc" type="text" name="input2" #input2 maxlength="1" pattern="^[0-9]$">
+      <input class="otSc" type="text" name="input3" #input3 maxlength="1" pattern="^[0-9]$">
+      <input class="otSc" type="text" name="input4" #input4 maxlength="1" pattern="^[0-9]$">
+      <input class="otSc" type="text" name="input5" #input5 maxlength="1" pattern="^[0-9]$">
+
+    </div>
+
+<div style="display: flex; flex-direction: row; margin-left: 15px; margin-top: 5px;">
+    <button
+      mat-stroked-button
+      id="authenticateBtn"
+      (click)="submitOtp(input1.value,input2.value,input3.value,input4.value,input5.value)"
+      *ngIf="!resendOtp" >
+      Submit
+    </button>
+    <button
+    mat-stroked-button
+    id="authenticateBtn"
+    (click)="sendOtp()"
+
+ *ngIf="resendOtp" >
+    Resend OTP
+  </button>
+  </div>
+    <p style="text-align: center;">Enter OTP sent to your Mobile number {{numArr}}</p>
+    <p style="text-align: center; color: red;">{{ outmsg }}</p>
+    </form>
+  </mat-card>
+</div>

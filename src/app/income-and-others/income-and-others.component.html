@@ -1,0 +1,175 @@
+<app-header1></app-header1>
+
+<form #incomeForm="ngForm" (ngSubmit)="submitIncomeInformation(incomeForm)">
+  <!-- Income and Other Details -->
+  <div [style.margin-left.px]="formMargin" [style.margin-right.px]="formMargin">
+    <h1 [ngStyle]="setMyStyles()" style="margin:50px 0 30px 0;">
+      {{ "CUSTOMER.incomeHeading.name" | translate }}
+    </h1>
+    <mat-grid-list
+      [cols]="primaryCol"
+      [gutterSize]="gutterSize"
+      [rowHeight]="rowHeight"
+    >
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label
+            >{{ "CUSTOMER.incomeHeading.labels.income" | translate }}
+          </mat-label>
+          <input
+            matInput
+            required
+            ngModel
+            type="number"
+            name="income"
+            #income="ngModel"
+          />
+          <span matSuffix class="dollarIcon">$</span>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label
+            >{{
+              "CUSTOMER.incomeHeading.labels.sourceIncomeDropdown.label"
+                | translate
+            }}
+          </mat-label>
+          <mat-select
+            required
+            ngModel
+            name="sourceOfIncome"
+            #sOfIncome="ngModel"
+          >
+            <mat-option *ngFor="let type of sourceOfIncome" [value]="type.id">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label
+            >{{ "CUSTOMER.incomeHeading.labels.expense" | translate }}
+          </mat-label>
+          <input
+            matInput
+            required
+            ngModel
+            type="number"
+            name="expense"
+            #expense="ngModel"
+          />
+          <span matSuffix class="dollarIcon">$</span>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>{{
+            "CUSTOMER.incomeHeading.labels.propertyValue" | translate
+          }}</mat-label>
+          <input
+            matInput
+            required
+            ngModel
+            type="number"
+            name="propertyValue"
+            #propertyValue="ngModel"
+          />
+          <span matSuffix class="dollarIcon">$</span>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>{{
+            "CUSTOMER.primaryHeading.labels.socialNumber" | translate
+          }}</mat-label>
+          <input matInput required ngModel name="ssnNo" #ssnNo="ngModel" />
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>{{
+            "CUSTOMER.primaryHeading.labels.birthDate" | translate
+          }}</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            required
+            ngModel
+            name="birthDate"
+            #dob="ngModel"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <!-- Uploading Documents -->
+  <app-documents></app-documents>
+  <!-- Financing Details -->
+  <div [style.margin-left.px]="formMargin" [style.margin-right.px]="formMargin">
+    <h1 [ngStyle]="setCheckBoxStyles()">
+      {{ "CUSTOMER.financingHeading.name" | translate }}
+    </h1>
+    <mat-grid-list [cols]="checkboxCol" gutterSize="50px" rowHeight="50px">
+      <mat-grid-tile
+        class="checkBoxTile"
+        *ngFor="let product of productsList; let i = index"
+      >
+        <div #fgName="ngModelGroup" ngModelGroup="products">
+          <mat-checkbox
+            disableRipple
+            [name]="product.id"
+            ngModel
+            [checked]="selectedProduct === i"
+            (change)="selectedProduct = i"
+            (click)="getProductId(product.id, product.name)"
+            >{{ product.name }}
+          </mat-checkbox>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <!--Contractor Information -->
+  <div [style.margin-left.px]="formMargin" [style.margin-right.px]="formMargin">
+    <h1 [ngStyle]="setMyStyles()" style="margin:50px 0 30px 0;">
+      {{ "CUSTOMER.contractorHeading.name" | translate }}
+    </h1>
+    <mat-grid-list [cols]="contractorInfoCol" [rowHeight]="rowHeight">
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>{{
+            "CUSTOMER.contractorHeading.labels.renewContractorDropdown.label"
+              | translate
+          }}</mat-label>
+          <mat-select ngModel required name="contractor" #contractor="ngModel">
+            <mat-option
+              *ngFor="let contractor of contractors"
+              [value]="contractor.id"
+              >{{ contractor.firmName }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <button
+    mat-stroked-button
+    type="submit"
+    [style.margin-top.px]="buttonTopMargin"
+    [style.margin-bottom.px]="buttonBottomMargin"
+    id="proceedBtn"
+  >
+    Proceed
+  </button>
+</form>
+
+<app-footer></app-footer>

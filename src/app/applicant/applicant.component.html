@@ -1,0 +1,22 @@
+<div>
+  <h2>Applicant</h2>
+  <mat-form-field appearance="standard">
+    <mat-label>Address</mat-label>
+    <input matInput required ngModel name="address" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Employments</mat-label>
+    <input matInput required ngModel name="employments" />
+  </mat-form-field>
+  <mat-form-field
+    appearance="standard"
+    *ngIf="formName.csr || formName.underwriter"
+  >
+    <mat-label>Credit Scores</mat-label>
+    <input matInput required ngModel name="creditScores" />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.csr">
+    <mat-label>Contractor Details</mat-label>
+    <input matInput required ngModel name="contractorDetails" />
+  </mat-form-field>
+</div>

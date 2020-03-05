@@ -1,0 +1,6 @@
+@import "../../variablesAndMixins";
+@import "../../formAndTooltip";
+@import "../../tabDesign";
+h1 {
+  @include textStyle(36, 48, 500, $headingDark);
+}

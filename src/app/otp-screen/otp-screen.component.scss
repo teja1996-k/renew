@@ -1,0 +1,21 @@
+@import "../../variablesAndMixins";
+@import "../../formAndTooltip";
+
+#otpCard {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  mat-card {
+    padding: 30px;
+    min-width: 300px;
+    max-width: 500px;
+    border: 2px dashed darkgray;
+  }
+}
+
+#authenticateBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include btnStyle(14, 18, 600, 40, 15, $green, $green, $white, $lightGreen);
+}

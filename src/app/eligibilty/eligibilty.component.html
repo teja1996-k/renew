@@ -1,0 +1,21 @@
+<div class="body">
+  <mat-card [style.height.px]="height">
+    <div class="thank-you-pop">
+      <img class="logo"
+        [src]="image['renewDark']"
+        alt=""
+      />
+      <img class="eligiblelogo"
+        [src]="successimage"
+        alt="" *ngIf="successimage"
+      />
+      <p class="congrats" *ngIf="msg1">{{msg1}}</p>
+      <p class="message" *ngIf="msg2">{{msg2}}</p>
+      <p style="font-size: 30px; color: rgba(0, 0, 0, 1);" *ngIf="amount">{{amount}}</p>
+      <h3 class="cupon-pop">
+        Application Id: <span>{{ appId }}</span>
+      </h3>
+      <p class="message" *ngIf="msg3">{{msg3}}</p>
+    </div>
+  </mat-card>
+</div>

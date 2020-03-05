@@ -1,0 +1,13 @@
+@import "../../variablesAndMixins";
+
+.mat-accordion .mat-expansion-panel {
+  border-radius: 0px !important;
+  border: 1px solid $lightGreen;
+  mat-panel-title {
+    @include textStyle(14, 18, 500, $green);
+    font-family: $buttonFont;
+  }
+  .mat-expansion-indicator::after {
+    color: $lightGreen !important;
+  }
+}

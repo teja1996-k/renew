@@ -1,0 +1,101 @@
+<app-header1></app-header1>
+<div class="body">
+  <!-- TODO: HEADER -->
+  
+
+  <form #customerForm="ngForm"  >
+  <div #content style="margin: 30px; background-color: #fff; width: 70%; position: relative ; margin: auto;">
+    <h1 style="font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 50px 0px 30px; color: #54565a; font-weight:500" >Preview Customer Details</h1>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="label">
+      <th mat-header-cell *matHeaderCellDef style="    font-weight: bolder;
+      color: #fff;"> Label </th>
+      <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef style="    font-weight: bolder;
+      color: #fff;"> Value </th>
+      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+    </ng-container>
+  
+    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <app-t-and-c></app-t-and-c>
+  <div id="tAndCheckbox"  >
+    <input type="checkbox" id="vehicle1" value="vehicle1" required (change)="toggleEditable1($event)" />
+    <label for="vehicle1">
+      {{ "CUSTOMER.termsHeading.texts.checkboxLabel1" | translate }}
+    </label>
+    </div>
+  <div id="tAndCheckbox">
+    <input type="checkbox" id="vehicle2"  value="vehicle2" required  (change)="toggleEditable2($event)"/>
+    <label for="vehicle2">
+      {{ "CUSTOMER.termsHeading.texts.checkboxLabel2" | translate }}
+    </label>
+  </div>
+  <div style="display: flex; flex-direction: row; justify-content: center;" >
+    <button
+    mat-stroked-button
+    type="submit"
+    (click)="editOnboardingForm()"
+    [style.margin-top.px]="buttonTopMargin"
+    [style.margin-bottom.px]="buttonBottomMargin"
+    class="applyBtn"
+  >
+    {{ "CUSTOMER.editBtn" | translate }}
+  </button>
+  <button
+  mat-stroked-button
+  type="submit"
+  (click)="submitreviewForm()"
+  [style.margin-top.px]="buttonTopMargin"
+  [style.margin-bottom.px]="buttonBottomMargin"
+  class="applyBtn" [disabled]="!(contentEditable1 && contentEditable2)"
+>
+  {{ "CUSTOMER.submitBtn" | translate }}
+</button>
+</div>
+  </div>
+  
+
+</form>
+
+   <!-- TODO: FOOTER -->
+<app-footer></app-footer>
+
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

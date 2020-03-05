@@ -1,0 +1,22 @@
+@import "../../variablesAndMixins";
+
+#header {
+  @include matFigure(leftTile, center, flex-start, 80);
+  @include matFigure(rightTile, center, flex-end, 0, 80);
+  @include matFigure(tileMob, center, flex-start, 35);
+
+  // Header for Desktop
+  #headerDesktop {
+    background-color: $headingDark;
+    h1 {
+      @include textStyle(36, 48, 500, $white, $headingDark);
+    }
+  }
+  // Header for mobile
+  #headerMob {
+    background-color: $headingDark;
+    h1 {
+      @include textStyle(24, 32, 500, $white, $headingDark);
+    }
+  }
+}

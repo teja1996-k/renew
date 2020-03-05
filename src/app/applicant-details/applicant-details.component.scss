@@ -1,0 +1,16 @@
+@import "../../variablesAndMixins";
+@import "../../formAndTooltip";
+@import "../../tabDesign";
+
+// Main Form
+#applicantDetails {
+  @include matFigure(formApplicationTile, center, flex-start);
+  @include matFigure(formButtonsTile, center, flex-end);
+  h1 {
+    @include textStyle(36, 48, 500, $headingDark);
+  }
+  .actionBtn {
+    @include btnStyle(14, 18, 600, 24, 7, $green, $green, $white, $lightGreen);
+    margin-left: 20px;
+  }
+}

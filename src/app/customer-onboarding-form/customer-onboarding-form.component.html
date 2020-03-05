@@ -1,0 +1,498 @@
+<!-- <select [(ngModel)]="selectedLanguage" (change)="selected()">
+  <option value="en">en</option>
+  <option value="es">es</option>
+</select> -->
+<!-- ============================================= -->
+<div style="background-color: #fff;">
+  <!-- TODO: HEADER -->
+  <div id="header">
+    <!-- This is for Desktop view -->
+    <mat-grid-list
+      cols="3"
+      rowHeight="173px"
+      id="headerDesktop"
+      *ngIf="isMedium || isLarge"
+    >
+      <mat-grid-tile id="leftTile"
+        ><img [src]="images['renewWhite']" height="75px" alt="logo" />
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" id="rightTile">
+        <div>
+          <h1>{{ "CUSTOMER.customerForm" | translate }}</h1>
+          <div style="float: right;">
+            <img
+              [src]="images['californiaWhite']"
+              alt=""
+              max-height="26px"
+              style="margin-right: 26px;"
+            />
+            <img [src]="images['paceWhite']" alt="" height="26px" />
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!-- TODO: This is for Mobile view -->
+    <mat-grid-list
+      cols="1"
+      rowHeight="146px"
+      id="headerMob"
+      *ngIf="isXsmall || isSmall"
+    >
+      <mat-grid-tile id="tileMob">
+        <div>
+          <img
+            [src]="images['renewWhite']"
+            height="60px"
+            alt="logo"
+            style="margin-bottom: 8px;"
+          />
+          <h1>{{ "CUSTOMER.customerForm" | translate }}</h1>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <!-- TODO: FORM -->
+  <div id="form">
+    <form
+      #customerForm="ngForm"
+      (ngSubmit)="submitCustomerForm(customerForm)"
+      [style.margin-left.px]="formMargin"
+      [style.margin-right.px]="formMargin"
+    >
+      <!--1. Primary Information -->
+      <div>
+        <h1 [ngStyle]="setMyStyles()">
+          {{ "CUSTOMER.primaryHeading.name" | translate }}
+        </h1>
+        <mat-grid-list
+          [cols]="primaryCol"
+          [gutterSize]="gutterSize"
+          [rowHeight]="rowHeight"
+        >
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.firstName" | translate
+              }}</mat-label>
+              <input
+                matInput
+                required
+                ngModel
+                [name]="firstName"
+                autocomplete="off"
+                #firstName="ngModel"
+                pattern="[^\s]+[a-zA-Z ]*[^\s]+"
+              />
+              <mat-error
+                *ngIf="
+                  firstName.invalid && (firstName.dirty || firstName.touched)
+                "
+              >
+                <mat-error *ngIf="firstName.errors?.required">
+                  First Name is Required</mat-error
+                >
+                <mat-error *ngIf="firstName.errors?.pattern">
+                  Enter Valid First Name</mat-error
+                >
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.lastName" | translate
+              }}</mat-label>
+              <input
+                matInput
+                required
+                ngModel
+                autocomplete="off"
+                name="lastName"
+                #lastName="ngModel"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.mobileNumber" | translate
+              }}</mat-label>
+              <span matPrefix>+1 &nbsp;</span>
+              <input
+                matInput
+                required
+                ngModel
+                name="mobile"
+                #mobile="ngModel"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.emailID" | translate
+              }}</mat-label>
+              <input matInput required ngModel name="email" #email="ngModel" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.birthDate" | translate
+              }}</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                required
+                ngModel
+                name="birthDate"
+                #dob="ngModel"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.primaryHeading.labels.socialNumber" | translate
+              }}</mat-label>
+              <input matInput required ngModel name="ssnNo" #ssnNo="ngModel" />
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <!--2. Income & Other Information -->
+      <div>
+        <h1 [ngStyle]="setMyStyles()">
+          {{ "CUSTOMER.incomeHeading.name" | translate }}
+        </h1>
+        <mat-grid-list
+          [cols]="primaryCol"
+          [gutterSize]="gutterSize"
+          [rowHeight]="rowHeight"
+        >
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label
+                >{{ "CUSTOMER.incomeHeading.labels.income" | translate }}
+              </mat-label>
+              <input
+                matInput
+                required
+                ngModel
+                type="number"
+                name="income"
+                #income="ngModel"
+              />
+              <span matSuffix class="dollarIcon">$</span>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label
+                >{{
+                  "CUSTOMER.incomeHeading.labels.sourceIncomeDropdown.label"
+                    | translate
+                }}
+              </mat-label>
+              <mat-select
+                required
+                ngModel
+                name="sourceOfIncome"
+                #sOfIncome="ngModel"
+              >
+                <mat-option
+                  *ngFor="let type of sourceOfIncome"
+                  [value]="type.id"
+                  >{{ type.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.incomeHeading.labels.peopleLiveDropdown.label"
+                  | translate
+              }}</mat-label>
+              <mat-select
+                required
+                ngModel
+                name="countPeopleStay"
+                #noOfPeople="ngModel"
+              >
+                <mat-option value="1">1 </mat-option>
+                <mat-option value="2">2 </mat-option>
+                <mat-option value="3">3 </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <!--3. Documents -->
+      <div>
+        <h1
+          [ngStyle]="setMyStyles()"
+          [style.margin-bottom.px]="isXsmall ? '90' : '60'"
+        >
+          {{ "CUSTOMER.documentsHeading.name" | translate }}
+          <span style="font-size: 24px;">{{
+            "CUSTOMER.documentsHeading.spanText" | translate
+          }}</span>
+        </h1>
+        <mat-grid-list
+          [cols]="documentsCol"
+          [gutterSize]="gutterSize"
+          [rowHeight]="rowHeight"
+        >
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.documentsHeading.labels.drivingLicence.label"
+                  | translate
+              }}</mat-label>
+              <ngx-mat-file-input ngModel name="drivingLicence" required>
+              </ngx-mat-file-input>
+              <img
+                [src]="images['upload']"
+                alt=""
+                matSuffix
+                matTooltip="{{
+                  'CUSTOMER.documentsHeading.labels.drivingLicence.tooltip'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.documentsHeading.labels.bankStatement.label"
+                  | translate
+              }}</mat-label>
+              <ngx-mat-file-input ngModel name="bankStatement" required>
+              </ngx-mat-file-input>
+              <img
+                [src]="images['upload']"
+                alt=""
+                matSuffix
+                matTooltip="{{
+                  'CUSTOMER.documentsHeading.labels.bankStatement.tooltip'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.documentsHeading.labels.taxReturns.label" | translate
+              }}</mat-label>
+              <ngx-mat-file-input ngModel name="taxReturns">
+              </ngx-mat-file-input>
+              <img
+                [src]="images['upload']"
+                alt=""
+                matSuffix
+                matTooltip="{{
+                  'CUSTOMER.documentsHeading.labels.taxReturns.tooltip'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.documentsHeading.labels.propertyValue.label"
+                  | translate
+              }}</mat-label>
+              <ngx-mat-file-input ngModel name="propertyValue">
+              </ngx-mat-file-input>
+              <img
+                [src]="images['upload']"
+                alt=""
+                matSuffix
+                matTooltip="{{
+                  'CUSTOMER.documentsHeading.labels.propertyValue.tooltip'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.documentsHeading.labels.utilityBill.label" | translate
+              }}</mat-label>
+              <ngx-mat-file-input ngModel name="utilityBill">
+              </ngx-mat-file-input>
+              <img
+                [src]="images['upload']"
+                alt=""
+                matSuffix
+                matTooltip="{{
+                  'CUSTOMER.documentsHeading.labels.utilityBill.tooltip'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <!--5. Financing Details -->
+      <div>
+        <h1 [ngStyle]="setCheckBoxStyles()">
+          {{ "CUSTOMER.financingHeading.name" | translate }}
+        </h1>
+        <mat-grid-list [cols]="checkboxCol" gutterSize="50px" rowHeight="50px">
+          <mat-grid-tile
+            class="checkBoxTile"
+            *ngFor="let product of productsList; let i = index"
+          >
+            <div #fgName="ngModelGroup" ngModelGroup="products">
+              <mat-checkbox
+                disableRipple
+                [name]="product.id"
+                ngModel
+                [checked]="selectedProduct === i"
+                (change)="selectedProduct = i"
+                (click)="getProductId(product.id)"
+                >{{ product.name }}
+              </mat-checkbox>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <!--Contractor Information -->
+      <div>
+        <h1 [ngStyle]="setMyStyles()">
+          {{ "CUSTOMER.contractorHeading.name" | translate }}
+        </h1>
+        <mat-grid-list
+          [cols]="contractorInfoCol"
+          gutterSize="70px"
+          [rowHeight]="rowHeight"
+        >
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.contractorHeading.labels.renewContractorDropdown.label"
+                  | translate
+              }}</mat-label>
+              <mat-select
+                [disabled]="applyWithNonRenew.valid"
+                ngModel
+                required
+                name="contractor"
+                #contractor="ngModel"
+              >
+                <mat-option>Apply with non Renew Contractor</mat-option>
+                <mat-option
+                  *ngFor="let contractor of contractors"
+                  [value]="contractor.id"
+                  >{{ contractor.firstName }}
+                  {{ contractor.lastName }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="standard">
+              <mat-label>{{
+                "CUSTOMER.contractorHeading.labels.nonRenewContractor.label"
+                  | translate
+              }}</mat-label>
+              <input
+                matInput
+                [disabled]="contractor.valid"
+                required
+                ngModel
+                autocomplete="off"
+                name="applyWithNonRenew"
+                #applyWithNonRenew="ngModel"
+                placeholder="{{
+                  'CUSTOMER.contractorHeading.labels.nonRenewContractor.placeholder'
+                    | translate
+                }}"
+              />
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <!--6. Terms & Conditions -->
+      <div id="tAndC">
+        <h1 [ngStyle]="setMyStyles()">
+          {{ "CUSTOMER.termsHeading.name" | translate }}
+        </h1>
+        <h4>
+          {{ "CUSTOMER.termsHeading.texts.text1" | translate }}
+        </h4>
+        <p>
+          - Federal <span style="font-weight: bold;">ESIGN</span>
+          {{ "CUSTOMER.termsHeading.texts.text2" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text3" | translate }}
+        </p>
+        <h4>
+          {{ "CUSTOMER.termsHeading.texts.text4" | translate }}
+        </h4>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text5" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text6" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text7" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text8" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text9" | translate }}
+        </p>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text10" | translate }}
+        </p>
+
+        <h4>
+          {{ "CUSTOMER.termsHeading.texts.text11" | translate }}
+        </h4>
+        <p>
+          {{ "CUSTOMER.termsHeading.texts.text12" | translate }}
+        </p>
+
+        <div id="tAndCheckbox">
+          <input type="checkbox" id="vehicle1" required />
+          <label for="vehicle1">
+            {{ "CUSTOMER.termsHeading.texts.checkboxLabel" | translate }}
+          </label>
+        </div>
+      </div>
+      <button
+        mat-stroked-button
+        type="submit"
+        [style.margin-top.px]="buttonTopMargin"
+        [style.margin-bottom.px]="buttonBottomMargin"
+        id="applyBtn"
+      >
+        {{ "CUSTOMER.applyBtn" | translate }}
+      </button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <app-footer></app-footer>
+
+  <div id="end"></div>
+</div>

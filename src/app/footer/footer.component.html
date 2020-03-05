@@ -1,0 +1,70 @@
+<!-- FOOTER -->
+<div id="footer">
+  <mat-grid-list
+    cols="3"
+    rowHeight="173px"
+    id="footerDesktop"
+    *ngIf="isMedium || isLarge"
+  >
+    <mat-grid-tile id="footerLeftTile"
+      ><img [src]="images['renewDark']" height="70px" alt="logo" />
+    </mat-grid-tile>
+    <mat-grid-tile id="footerMiddleTile">
+      <div>
+        <div>
+          <img
+            [src]="images['californiaDark']"
+            alt="California First"
+            height="22px"
+          />
+        </div>
+        <div style="margin-top: 10px;">
+          <img [src]="images['paceDark']" alt="Renew Pace" height="22px" />
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile id="footerRightTile">
+      <img [src]="images['copyright']" alt="copyright" height="70px" />
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- Footer Mobile View -->
+  <div id="footerMob" *ngIf="isXsmall || isSmall">
+    <mat-grid-list cols="6" rowHeight="58px">
+      <mat-grid-tile colspan="2" class="footerLogo"
+        ><img [src]="images['renewWhite']" height="27px" alt="logo" />
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" class="footerLogo">
+        <img
+          [src]="images['californiaWhite']"
+          alt="California first"
+          height="21px"
+        />
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" class="footerLogo">
+        <img [src]="images['paceWhite']" alt="Renew pace" height="21px" />
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <div>
+          <p style="color: #fff;">Contact Us</p>
+          <p>info@renewfinancial.com</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <p style="font-size: 18px;">844-736-3934</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <h5
+      style="text-align: center;color: #fff; padding: 10px; margin-top: 0px; padding-top: 0px; margin: 0; font-size: 9px;"
+    >
+      <p
+        style="display: flex; align-items: center; justify-content: center;color: #fff"
+      >
+        <mat-icon>copyright</mat-icon
+        ><span style="color: #fff;font-size: 11px;">
+          Financial, 1221 Broadway, 4th floor, Oakland, CA 94612</span
+        >
+      </p>
+    </h5>
+  </div>
+  <div id="end"></div>
+</div>

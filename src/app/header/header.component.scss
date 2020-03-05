@@ -1,0 +1,38 @@
+@import "../../variablesAndMixins";
+
+#header {
+  @include matFigure(headerLeftTile, center, flex-start, 80);
+  @include matFigure(headerRightTile, center, flex-end, 0, 80);
+  @include matFigure(headerMobLeftTile, flex-end, flex-start, 35);
+  @include matFigure(headerMobRightTile, flex-end, flex-end, 0, 35);
+
+  #headerDesktop {
+    background-color: $headingDark;
+    h1 {
+      @include textStyle(36, 48, 500, $white, $headingDark);
+    }
+  }
+  // Header for mobile
+  #headerMob {
+    background-color: $headingDark;
+    h1 {
+      @include textStyle(24, 32, 500, $white, $headingDark);
+    }
+  }
+
+  // Logout Button Design
+  .logoutBtn {
+    @include btnStyle(
+      14,
+      18,
+      600,
+      24,
+      7,
+      $white,
+      $lightGreen,
+      $white,
+      $lightGreen
+    );
+    margin-top: 10px;
+  }
+}

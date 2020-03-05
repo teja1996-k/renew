@@ -1,0 +1,63 @@
+<div [style.margin-left.px]="formMargin" [style.margin-right.px]="formMargin">
+  <h1 [ngStyle]="setMyStyles()" style="margin:50px 0 30px 0;">
+    Loan Details
+  </h1>
+  <mat-grid-list
+    [cols]="primaryCol"
+    [gutterSize]="gutterSize"
+    [rowHeight]="rowHeight"
+  >
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Amount Financed</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="amountFinanced"
+          matTooltip="Specify the Amount Financed"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Pre paid Amount</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="prepaidAmount"
+          matTooltip="Specify the Prepaid fess, if any Exist"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>First Payment Date</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="firstPaymentDate"
+          matTooltip="Specify the first payment date. The system displays the date one month from today as default value"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Commision Earned till Date</mat-label>
+        <input
+          matInput
+          required
+          ngModel
+          name="commisionEarned"
+          matTooltip="Specify the amount of commission earned till date"
+          [matTooltipPosition]="tooltipPosition"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,26 @@
+<div id="otpCard">
+  <mat-card>
+    <h3 style="text-align: center;">OTP</h3>
+
+    <mat-form-field appearance="standard">
+      <mat-label>OTP</mat-label>
+      <input
+        matInput
+        type="number"
+        required
+        ngModel
+        name="otp"
+        #otp="ngModel"
+        autofocus
+      />
+    </mat-form-field>
+
+    <button
+      mat-stroked-button
+      id="authenticateBtn"
+      (click)="validateOtp(otp.value)"
+    >
+      Proceed
+    </button>
+  </mat-card>
+</div>

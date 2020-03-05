@@ -1,0 +1,89 @@
+<div>
+  <h2>Pricing Terms & Presentment</h2>
+  <mat-form-field appearance="standard">
+    <mat-label>Contract Date</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="contractDate"
+      matTooltip="Specify the contract date. The system displays current date as the default value"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>First Payment Date</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="firstPaymentDate"
+      matTooltip="Specify the first payment date. The system displays the date one month from today as default value"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Loan Term</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="loanTerm"
+      matTooltip="Specify the number of payments"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Maturity Date</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="maturityDate"
+      matTooltip="System automatically displays the maturity date based on the val­ues entered for first payment date, term and billing cycle (i.e. Maturity Date = First Payment Date + Term (based on billing cycle)."
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Amount Financed</mat-label>
+    <input matInput required ngModel name="amountFinanced" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Prepaid Amount</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="prepaidAmount"
+      matTooltip="Specify the prepaid fees, if any exist. Either contractor seller points or Buyer seller points"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Financed Fees</mat-label>
+    <input matInput required ngModel name="financedFees" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Loan Amount</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="loanAmount"
+      matTooltip="View the estimated loan amount: amount financed plus the pre­paid fees"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Payment Amount</mat-label>
+    <input matInput required ngModel name="paymentAmount" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Interest Amount</mat-label>
+    <input matInput required ngModel name="interestAmount" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Total Payments</mat-label>
+    <input matInput required ngModel name="totalPayments" />
+  </mat-form-field>
+</div>

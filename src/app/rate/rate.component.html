@@ -1,0 +1,29 @@
+<div>
+  <h2>Rate</h2>
+  <mat-form-field appearance="standard">
+    <mat-label>Rate</mat-label>
+    <input matInput required ngModel name="rate" />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.lineManager">
+    <mat-label>Calendar Days</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="calendarDays"
+      matTooltip="View the number of calendar days between contract date and the first payment date. The calendar days will differ based on the cal­endar method selected"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.lineManager">
+    <mat-label>Interest</mat-label>
+    <input
+      matInput
+      required
+      ngModel
+      name="interest"
+      matTooltip="View the profit accrued for the calendar days"
+      [matTooltipPosition]="tooltipPosition"
+    />
+  </mat-form-field>
+</div>

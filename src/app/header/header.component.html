@@ -1,0 +1,45 @@
+<!-- HEADER -->
+<div id="header">
+  <!-- This is for Desktop view -->
+  <mat-grid-list
+    cols="3"
+    rowHeight="173px"
+    id="headerDesktop"
+    *ngIf="isMedium || isLarge"
+  >
+    <mat-grid-tile id="headerLeftTile"
+      ><img [src]="images['renewWhite']" height="75px" alt="logo" />
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" id="headerRightTile">
+      <div>
+        <h1>{{ formData.title }}</h1>
+        <div style="float: right;">
+          <button mat-stroked-button class="logoutBtn">
+            Signout
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- TODO: This is for Mobile view -->
+  <div *ngIf="isXsmall || isSmall" id="headerMob">
+    <img
+      [src]="images['renewWhite']"
+      height="60px"
+      alt="logo"
+      style="margin:25px 0px 0px 35px;"
+    />
+
+    <mat-grid-list cols="3" rowHeight="65px">
+      <mat-grid-tile id="headerMobLeftTile" colspan="2">
+        <h1 style="margin-bottom:17px">{{ formData.title }}</h1>
+      </mat-grid-tile>
+
+      <mat-grid-tile id="headerMobRightTile">
+        <button mat-stroked-button class="logoutBtn" style="margin-bottom:25px">
+          Signout
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

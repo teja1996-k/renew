@@ -1,0 +1,19 @@
+{
+  "californiaDark": "assets/images/California Dark.svg",
+  "californiaWhite": "assets/images/California White.svg",
+  "copyrightMob": "assets/images/Copyright Mob.svg",
+  "copyright": "assets/images/Copyright.svg",
+  "paceDark": "assets/images/Pace Dark.svg",
+  "paceWhite": "assets/images/Pace White.svg",
+  "renewDark": "assets/images/Renew Dark.svg",
+  "renewWhite": "assets/images/Renew White.svg",
+  "upload": "assets/images/upload.png",
+  "success": "assets/images/success.svg",
+  "sourceOfIncomeUrl": "http://172.16.0.44:8089/renew-financial/v1/sourceofincome",
+  "contractorsUrl": "http://172.16.0.44:8089/renew-financial/v1/contractors",
+  "productsUrl": "http://172.16.0.44:8089/renew-financial/v1/products",
+  "applyOnboardingFormUrl": "http://172.16.0.44:8089/renew-financial/v1/application",
+  "eligibilityUrl": "http://172.16.0.44:8080/activiti-app/api/enterprise/historic-process-instances/query",
+  "sendOtpUrl": "http://172.16.0.112:8089/renew-financial/v1/otp",
+  "validateOtpUrl": "http://172.16.0.112:8089/renew-financial/v1/validate-otp"
+}

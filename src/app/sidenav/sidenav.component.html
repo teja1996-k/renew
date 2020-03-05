@@ -1,0 +1,82 @@
+<app-header></app-header>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened #drawer>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Menu 1
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem"
+            ><a
+              routerLinkActive="active"
+              routerLink="/underwriter"
+              (click)="setRole('underwriter')"
+              >Underwriter</a
+            ></mat-list-item
+          >
+          <mat-list-item role="listitem"
+            ><a
+              routerLink="/csr"
+              routerLinkActive="active"
+              (click)="setRole('csr')"
+              >CSR</a
+            ></mat-list-item
+          >
+          <mat-list-item role="listitem"
+            ><a
+              routerLink="/linemanager"
+              routerLinkActive="active"
+              (click)="setRole('lineManager')"
+              >Line Manager</a
+            ></mat-list-item
+          >
+          <mat-list-item role="listitem"
+            ><a
+              routerLink="/contractor"
+              routerLinkActive="active"
+              (click)="setRole('contractor')"
+              >Contractor</a
+            ></mat-list-item
+          >
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Menu 2
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Menu 3
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Menu 4
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Menu 5
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-drawer>
+  <mat-drawer-content>
+    <!-- <app-form></app-form> -->
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>

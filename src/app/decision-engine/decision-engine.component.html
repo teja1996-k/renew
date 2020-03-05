@@ -1,0 +1,19 @@
+<div>
+  <h2>Decision Engine Result Summary</h2>
+  <mat-form-field appearance="standard">
+    <mat-label>Applicant Risk Score</mat-label>
+    <input matInput required ngModel name="riskScore" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Bankruptcy History</mat-label>
+    <input matInput required ngModel name="bankruptcyHistory" />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Statuatory litigations on property</mat-label>
+    <input matInput required ngModel name="statuatory" />
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="formName.underwriter">
+    <mat-label>Pending payments towards Mortgages</mat-label>
+    <input matInput required ngModel name="pendingPayments" />
+  </mat-form-field>
+</div>

@@ -1,0 +1,350 @@
+// TODO: All Variables
+$fontFamily: Futura, Trebuchet MS, Arial, sans-serif;
+$lightGreen: #81bd41;
+$green: #3bae49;
+$headingDark: #54565a;
+$labelDark: #9e9e9e;
+$white: #fff;
+
+// TODO: All mixins
+// #header responsive position
+@mixin matFigure($id, $itemPosition, $contentPosition, $ml: 0, $mr: 0) {
+  ##{$id} {
+    .mat-figure {
+      align-items: $itemPosition !important;
+      justify-content: $contentPosition !important;
+      margin-left: #{$ml}px !important;
+      margin-right: #{$mr}px !important;
+    }
+  }
+}
+
+// Nested Text Styling
+@mixin textStyle($selector, $height, $font, $color: $white, $bgColor: $white) {
+  background-color: $bgColor;
+  #{$selector} {
+    height: #{$height}px;
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 500;
+    font-size: #{$font}px;
+    line-height: #{$height}px;
+    color: $color;
+    margin: 0;
+    letter-spacing: 0.1px;
+  }
+}
+
+// Direct Text Styling
+@mixin text($height, $font, $color: $white) {
+  height: #{$height}px;
+  font-family: $fontFamily;
+  font-style: normal;
+  font-weight: 900;
+  font-size: #{$font}px;
+  line-height: #{$height}px;
+  color: $color;
+  letter-spacing: 0.1px;
+}
+
+// TODO: All CSS ==============================================================================
+
+// Responsive Tiles
+::ng-deep {
+  .checkBoxTile {
+    .mat-figure {
+      align-items: center !important;
+      justify-content: flex-start !important;
+    }
+  }
+  @include matFigure(leftTile, center, flex-start, 80);
+  @include matFigure(rightTile, center, flex-end, 0, 80);
+  @include matFigure(tileMob, center, flex-start, 35);
+  @include matFigure(logoTile, center, flex-end);
+  @include matFigure(middleTile, center, center);
+}
+
+// ============================================ Header
+#header {
+  #headerDesktop {
+    @include textStyle(h1, 48, 36, $white, $headingDark);
+  }
+  // Header for mobile
+  #headerMob {
+    @include textStyle(h1, 32, 24, $white, $headingDark);
+  }
+}
+
+// ========================================== Form
+#form {
+  @include textStyle(h1, 48, 36, $headingDark);
+
+  // .mat-grid-tile .mat-figure {
+  //   display: block !important;
+  // }
+
+  // Dollar Icon
+  .dollarIcon {
+    @include text(21, 18, $labelDark);
+  }
+}
+// TODO: Custom form field
+::ng-deep {
+  // Standard:
+  .mat-form-field {
+    width: 100%;
+    .mat-input-element {
+      color: $headingDark;
+      font-size: 14px;
+      // line-height: 64px;
+    }
+    .mat-form-field-label {
+      @include text(21, 14, $labelDark);
+    }
+    .mat-form-field-underline {
+      background-color: $green;
+    }
+    .mat-form-field-ripple {
+      // transition: background-color 0s;
+      background-color: rgba($color: $lightGreen, $alpha: 0.99);
+    }
+    .mat-form-field-required-marker {
+      color: $labelDark;
+    }
+    .mat-datepicker-toggle {
+      color: $lightGreen;
+    }
+    // Select option
+    .mat-select-arrow {
+      color: $lightGreen;
+    }
+    .mat-select-value {
+      color: $headingDark;
+      font-size: 14px;
+      // line-height: 64px;
+    }
+  }
+  // Focused: (when selected)
+  .mat-form-field.mat-focused {
+    .mat-form-field-label {
+      color: $green;
+    }
+    .mat-form-field-ripple {
+      background-color: $green;
+    }
+    .mat-form-field-required-marker {
+      color: red;
+    }
+    .mat-input-element {
+      color: $headingDark;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .mat-select-arrow {
+      color: $lightGreen;
+    }
+    .mat-select-value {
+      color: $headingDark;
+      font-size: 22px;
+      // line-height: 64px;
+    }
+    .mat-input-element {
+      caret-color: $green;
+    }
+  }
+
+  .mat-form-field.mat-form-field-invalid {
+    .mat-input-element {
+      color: red;
+      caret-color: red;
+    }
+    .mat-form-field-label {
+      color: red;
+      .mat-form-field-required-marker {
+        color: red;
+      }
+    }
+    .mat-form-field-ripple {
+      background-color: red;
+    }
+  }
+
+  // Select option color
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $green !important;
+    background-color: #effcef !important;
+  }
+
+  // .mat-form-field-infix {
+  //   line-height: 64px !important;
+  // }
+}
+
+// TODO: Custom Checkbox
+
+// Customizing checkbox
+/deep/ .mat-checkbox .mat-checkbox-frame {
+  border: 1px solid $lightGreen;
+  height: 29px;
+  width: 29px;
+}
+
+/deep/ .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $lightGreen;
+}
+
+/deep/ .mat-checkbox-inner-container {
+  height: 29px !important;
+  width: 29px !important;
+}
+
+/deep/ .mat-checkbox-layout {
+  // display: block !important;
+  .mat-checkbox-label {
+    @include text(21, 14, $labelDark);
+    margin-top: 19px;
+    margin-left: 14px;
+  }
+}
+
+// Tooltip
+/deep/ .mat-tooltip {
+  @include text(21, 14);
+  background: #5a5a5a;
+  font-weight: 500;
+  height: auto !important;
+}
+
+// T & C p text styling
+#tAndC {
+  p {
+    margin: 0;
+    padding: 0;
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    color: #4b4b4b;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  h4 {
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 900;
+    letter-spacing: 0.1px;
+    color: #4b4b4b;
+  }
+}
+
+// Apply Button Design
+#applyBtn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  // margin-top: 50px;
+  padding: 15px 50px;
+  color: $green;
+  border: 1px solid $green;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 16px rgba(0, 126, 255, 0.16);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  &:hover {
+    color: $white;
+    background-color: $green;
+  }
+}
+
+// Calender Design
+/deep/ .mat-calendar-body-selected {
+  color: $white !important;
+  border: none !important;
+  background-color: $lightGreen !important;
+}
+
+/deep/ .mat-calendar-body-today {
+  border: 1px solid $green !important;
+}
+
+#tAndCheckbox {
+  width: 100%;
+  margin-top: 45px;
+  position: relative;
+  display: block;
+  label {
+    position: relative;
+    min-height: 34px;
+    padding-left: 40px;
+    margin-bottom: 0;
+    @include text(21, 14, $headingDark);
+    font-family: $fontFamily;
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -17px;
+      width: 29px;
+      height: 29px;
+      transition: transform 0.28s ease;
+      border-radius: 3px;
+      border: 1px solid $lightGreen;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 6px;
+      border-bottom: 3px solid white;
+      border-left: 3px solid white;
+      transform: rotate(-45deg) scale(0);
+      transition: transform ease 0.25s;
+      position: absolute;
+      top: -8px;
+      left: 6px;
+    }
+  }
+  input[type="checkbox"] {
+    width: auto;
+    opacity: 0.00000001;
+    position: absolute;
+    left: 0;
+    margin-left: -20px;
+    &:checked ~ label {
+      &:before {
+        border: 1px solid $lightGreen;
+        background-color: $lightGreen;
+      }
+      &:after {
+        transform: rotate(-45deg) scale(1);
+      }
+    }
+    &:focus + label::before {
+      outline: 0;
+    }
+  }
+}
+
+// Custom number input field
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

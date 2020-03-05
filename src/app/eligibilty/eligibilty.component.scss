@@ -1,0 +1,86 @@
+.body {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eceff1;
+  }
+  mat-card {
+    width: 500px;
+
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+  }
+  .thank-you-pop {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  .thank-you-pop img.logo {
+    width: 230px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 25px;
+  }
+  .thank-you-pop img.eligiblelogo {
+    width: 230px;
+    height: 125px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 25px;
+  }
+  
+  .thank-you-pop h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #5c5c5c;
+  }
+  .thank-you-pop .congrats {
+    font-size: 28px;
+    margin-bottom: 27px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+  }
+  .thank-you-pop .message {
+    font-size: 22px;
+    margin-bottom: 27px;
+    line-height: 28px;
+  }
+  .thank-you-pop h3.cupon-pop {
+    font-size: 25px;
+    margin-bottom: 25px;
+    color: #222;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px dashed #222;
+    clear: both;
+    font-weight: normal;
+  }
+  .thank-you-pop h3.cupon-pop span {
+    color: #03a9f4;
+  }
+  .thank-you-pop a {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8bc34a;
+    border-radius: 17px;
+  }
+  .thank-you-pop a i {
+    margin-right: 5px;
+    color: #fff;
+  }
+  #ignismyModal .modal-header {
+    border: 0px;
+  }
+  /*--thank you pop ends here--*/
+  

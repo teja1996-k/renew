@@ -1,0 +1,99 @@
+<!-- <form
+  #customerForm="ngForm"
+  (ngSubmit)="submitCustomerForm(customerForm.value)"
+> -->
+<div [style.margin-left.px]="formMargin" [style.margin-right.px]="formMargin">
+  <h1 [ngStyle]="setMyStyles()" style="margin:50px 0 30px 0;">
+    Documents
+  </h1>
+  <mat-grid-list
+    [cols]="primaryCol"
+    [gutterSize]="gutterSize"
+    [rowHeight]="rowHeight"
+  >
+    <mat-grid-tile>
+      <mat-form-field appearance="standard">
+        <mat-label>Document Type</mat-label>
+        <mat-select
+          [(ngModel)]="selectedValue"
+          name="documentType"
+          #documentType="ngModel"
+        >
+          <mat-option
+            *ngFor="let document of documentTypes"
+            [value]="document.id"
+          >
+            {{ document.type }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button
+        mat-stroked-button
+        [disabled]="selectedValue == undefined"
+        id="addBtn"
+        (click)="addDocument(documentType.value)"
+      >
+        Add
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div *ngFor="let documents of documentLists">
+    <mat-grid-list
+      [cols]="primaryCol"
+      [gutterSize]="gutterSize"
+      [rowHeight]="rowHeight"
+    >
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>Document Name</mat-label>
+          <input
+            matInput
+            required
+            ngModel
+            [disabled]="applied"
+            name="{{ documents.type }}Name"
+            autocomplete="off"
+            #firstName="ngModel"
+            pattern="[^\s]+[a-zA-Z ]*[^\s]+"
+          />
+          <!-- <mat-error
+              *ngIf="
+                firstName.invalid && (firstName.dirty || firstName.touched)
+              "
+            >
+              <mat-error *ngIf="firstName.errors?.required">
+                First Name is <strong>Required</strong></mat-error
+              >
+              <mat-error *ngIf="firstName.errors?.pattern">
+                Please enter <strong>valid First Name</strong>
+              </mat-error>
+            </mat-error> -->
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="standard">
+          <mat-label>{{ documents.type }}</mat-label>
+          <ngx-mat-file-input ngModel name="{{ documents.type }}" required>
+          </ngx-mat-file-input>
+          <img [src]="images['upload']" alt="" matSuffix matTooltip="" />
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button
+          mat-stroked-button
+          id="removeBtn"
+          (click)="removeDocument(documents.id)"
+        >
+          Remove
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+<!-- <button mat-stroked-button id="submitBtn" type="submit">
+    Submit
+  </button>
+</form> -->
